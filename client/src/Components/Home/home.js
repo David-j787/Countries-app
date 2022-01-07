@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { getCountries } from '../../Actions'
-
+import { 
+    getCountries, 
+    OrderAlpha, 
+    getCountryByContinent,
+    OrderPopulation
+    } from '../../Actions';
+import Paginado from '../Paginado/index.js';
 import CountryCard from '../countryCard/card';
-
+import SearchInput from '../SearchBar/index';
 
 
 export default function Home(){
@@ -15,24 +20,115 @@ export default function Home(){
         console.log('llegue al dispatch')
     }, []);
 
+    
+    const countries = useSelector(state => state?.countries);
+    const[orden, setOrden] = useState('');
+    const [currentPage, setCurrentPage] = useState(1);
+    const [countriesPerPage, setCountriesPerPage] = useState(9);
+    const indexOfLastCountry = currentPage * countriesPerPage;
+    const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
+    const currentCountries = countries?.slice(indexOfFirstCountry, indexOfLastCountry);
+    
 
-    const countries = useSelector(state => state?.countries)
+
+    
+    //Reset button
+    function handleReset(e){
+        e.preventDefault();
+        dispatch(getCountries());
+    }
+
+
+    //pagination 
+    const paginado = (pageNumber) => {
+        setCurrentPage(pageNumber)
+}
+
+    //Order by population function
+    function handlePopulation(e){
+        e.preventDefault();
+        dispatch(OrderPopulation(e.target.value));
+        setOrden(e.target.value);
+    }
+
+    //Order alphabethical functions
+    function handleAlpha(e){
+        e.preventDefault();
+        setOrden(e.target.value);
+        setCurrentPage(1);
+        dispatch(OrderAlpha(e.target.value));
+    }
+    // Search by continents functions
+    function handleGetContinent(e){
+        e.preventDefault();
+        setCurrentPage(1);
+        setOrden(e.target.value);
+        dispatch(getCountryByContinent(e.target.value))
+    }
+
+
     return (
         <div>
-            holaaaaa
-            {
-                countries?.map(country => {
+            {/* Search Input */}
+            <SearchInput/>
+
+            {/* Search by continent */}
+
+            <select onChange={e => handleGetContinent(e)}>                
+                <option value=''>Continent</option>
+				<option value='North America'>North America</option>
+                <option value='South America'>South America</option>    
+				<option value='Antarctica'>Antarctica</option>
+				<option value='Asia'>Asia</option>
+				<option value='Africa'>Africa</option>
+				<option value='Oceania'>Oceania</option>
+            </select>
+
+            {/* Order alphabetic */}
+
+            <select onChange={e => handleAlpha(e)}>
+                <option selected>Order</option>
+                <option value = 'A-Z'>A-Z</option>
+                <option value = 'Z-A'>Z-A</option>
+            </select>
+
+            {/* Order per Population */}
+
+                <select onChange={e => handlePopulation(e)}>
+                    <option selected>Population</option>
+                    <option value = 'HtoL'>Higher to Lower</option>
+                    <option value = 'LtoH'>Lower to Higher</option>
+                </select>
+            
+            {/* Boton reset */}
+
+            <button onClick={e => handleReset(e)}>Reset filters</button>
+
+            {/* mapeo de los paises */}
+            { 
+                currentCountries?.map(country => {
                     return(
-                        <fragment>
+                        <>
                             <CountryCard
-                            id = {country.id}
                             name = {country.name}
                             flagImg = {country.flagImg}
+                            continent = {country.continent}
                             />
-                        </fragment>
+                        </>
                     )
                 })
             }
+            {
+            <div>
+                <Paginado
+                countriesPerPage={countriesPerPage}
+                countries={countries?.length}
+                paginado={paginado}
+                />
+            </div>
+
+            }
+            
         </div>
     )
 }
