@@ -1,0 +1,10 @@
+.card{
+    display: inline-block;
+    margin: 30px;
+}
+
+
+.flag{
+    width: 400px;
+    height: 200px;
+}

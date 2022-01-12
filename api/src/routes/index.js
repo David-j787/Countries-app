@@ -68,7 +68,18 @@ router.get('/countries/:id', async (req, res) => {
     res.send(country)
 });
 
-router.post('/activity', async (req, res) => {
+router.get('/activity', async (req,res) => {
+    try {
+        let activities = await Activity.findAll()
+        res.status(200).send(activities)
+    } catch (errors) {
+        res.status(500).send('Error')
+    }
+})
+
+
+router.post('/activity', async (req, res, next) => {
+    try{
     const {name, difficulty, duration, season, countries}= req.body;
 
     let newActivity = await Activity.create({
@@ -84,10 +95,15 @@ router.post('/activity', async (req, res) => {
                 name: country
             }
         })
-        return await newActivity.addCountry(activityCountry)
-        .then(() => res.send('Activity created succesfully'))
+        await newActivity.addCountry(activityCountry)
     });
+    res.status(200).send('La actividad se creo exitosamente')
 
+
+    }catch(error){
+        console.log(error)
+        res.status(500).send('No se pudo crear la actividad')
+    }
 });
 
 

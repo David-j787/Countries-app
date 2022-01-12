@@ -25,6 +25,9 @@ module.exports = (sequelize) => {
 			type: DataTypes.STRING,
 			allowNull: false,
 		},
+		area: {
+			type: DataTypes.DECIMAL,
+		},
 		subregion: {
 			type: DataTypes.STRING,
 		},

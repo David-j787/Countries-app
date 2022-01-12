@@ -36,6 +36,7 @@ conn.sync({ force: true }).then(() => {
           id: country.cca3,
           flagImg: country.flags[0],
           continent: country.continents[0],
+          area: country.area,
           capital: country.capital[0],
           subregion: country.subregion,
           population: country.population

@@ -5,8 +5,10 @@ import {
     getCountries, 
     OrderAlpha, 
     getCountryByContinent,
-    OrderPopulation
+    OrderPopulation,
+    searchByAct
     } from '../../Actions';
+import getAct from '../../Actions';
 import Paginado from '../Paginado/index.js';
 import CountryCard from '../countryCard/card';
 import SearchInput from '../SearchBar/index';
@@ -17,11 +19,13 @@ export default function Home(){
 
     useEffect(() => {
         dispatch(getCountries())
+        dispatch(getAct())
         console.log('llegue al dispatch')
     }, []);
 
     
     const countries = useSelector(state => state?.countries);
+    const activities = useSelector(state => state?.activities);
     const[orden, setOrden] = useState('');
     const [currentPage, setCurrentPage] = useState(1);
     const [countriesPerPage, setCountriesPerPage] = useState(9);
@@ -29,7 +33,11 @@ export default function Home(){
     const indexOfFirstCountry = indexOfLastCountry - countriesPerPage;
     const currentCountries = countries?.slice(indexOfFirstCountry, indexOfLastCountry);
     
-
+    // Order activities functions
+    function handleSearchActivities(e){
+        e.preventDefault();
+        dispatch(searchByAct(e.target.value));
+    }
 
     
     //Reset button
@@ -99,7 +107,17 @@ export default function Home(){
                     <option value = 'HtoL'>Higher to Lower</option>
                     <option value = 'LtoH'>Lower to Higher</option>
                 </select>
-            
+            {/* Filter activities */}
+            <select onChange={e => handleSearchActivities(e)}>
+                <option selected value = 'all'>Activities</option>
+            {
+                activities?.map(act => {
+                    return (
+                        <option value={act.name}>{act.name}</option>
+                    )
+                })
+            }
+            </select>
             {/* Boton reset */}
 
             <button onClick={e => handleReset(e)}>Reset filters</button>
@@ -113,6 +131,7 @@ export default function Home(){
                             name = {country.name}
                             flagImg = {country.flagImg}
                             continent = {country.continent}
+                            id = {country.id}
                             />
                         </>
                     )
