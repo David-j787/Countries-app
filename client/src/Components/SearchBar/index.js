@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { getCountriesByName } from "../../Actions";
 
 
-
 export default function SearchInput(){
     const dispatch = useDispatch();
     const [name, setName] = useState('');
@@ -20,7 +19,7 @@ export default function SearchInput(){
     }
 
     return (
-        <span>
+        <span id="searchbar">
             {/* Search */}
 
             <input type = 'text'

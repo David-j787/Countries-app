@@ -4,12 +4,12 @@ import './card.css'
 
 export default function CountryCard({continent, name, flagImg, id}){
     return (
-        <div className="card">
             <Link to = {'/home/'+id}>
-            <h1>{name}</h1>
+        <div className="card">
+            <h3 className='titlulos-Country'>{name}</h3>
             <img className="flag" src={flagImg} ></img>
-            <h4>{continent}</h4>
-            </Link>
+            <h4 className='titlulos-Country'>{continent}</h4>
         </div>
+            </Link>
     )
 } 

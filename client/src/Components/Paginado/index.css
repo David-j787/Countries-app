@@ -1,7 +1,20 @@
 .numeritos{
     display: inline-block;
     justify-content: space-between;
-    margin: 9px;
+    margin: 5px;
     position: relative;
-    left: 30px;
+    left: 140px;
+}
+
+#boton{
+    background-color: rgb(133, 166, 194) ;
+    border-radius: 100%;
+    border-width: 0;
+    height: 30px;
+    width: 30px;
+    cursor: pointer;
+}
+
+#boton:hover{
+    background-color: rgb(42, 111, 143);
 }

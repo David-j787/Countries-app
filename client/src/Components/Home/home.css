@@ -1,0 +1,94 @@
+
+/* estilos inputs */
+.inputDiv{
+    background-color: rgb(66, 119, 121);
+    position: fixed;
+    height: 100%;
+    top: 0; left: 0;
+    transition: all 500ms ease;
+    transform: translateX(-100%);
+}
+
+#checkNav:checked ~ .inputDiv{
+    transform: translateX(0%);
+
+}
+
+#Check{
+    float: left;
+    cursor: pointer;
+    position: relative;
+    bottom: 22px;
+    background-color: rgba(158, 150, 194, 0.219);
+    width: 100%;
+    height: 50px;
+    
+}
+
+#checkNav{
+    visibility: hidden;
+    float: left;
+}
+
+
+.countries{
+    position: relative;
+    left: 13%;
+    bottom: 70px;
+    transition: all 500ms ease;
+}
+
+#checkNav:checked ~ .countries{
+    transform: translateX(9%);
+}
+
+.orders{
+    display: block;
+    margin: 80px;
+    position: relative;
+    top: 100px;
+}
+
+#add-btn{
+    position: relative;
+    left: 1300px;
+    bottom: 120px;
+}
+
+#titulo{
+    position: relative;
+    left: 45%;
+    bottom: 70px;
+}
+
+    /* Paginado */
+#pagination{
+    transition: all 500ms ease;
+}
+
+#checkNav:checked ~ #pagination{
+    transform: translateX(9%);
+    
+}   
+
+#close-btn{
+    position: relative;
+    left: 240px;
+    bottom: 600px;
+    cursor: pointer;
+}
+
+    /* home */
+#entire{
+    background-image: url('https://www.mactualidad.com/wp-content/uploads/2014/07/smooth-ivy.jpg');
+    height: 100%;
+    overflow: hidden;
+}
+
+
+/* search */
+
+#search{
+    position: relative;
+    top: 100px;
+}

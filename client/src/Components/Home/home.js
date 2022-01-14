@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { 
     getCountries, 
     OrderAlpha, 
@@ -12,6 +13,7 @@ import getAct from '../../Actions';
 import Paginado from '../Paginado/index.js';
 import CountryCard from '../countryCard/card';
 import SearchInput from '../SearchBar/index';
+import './home.css'
 
 
 export default function Home(){
@@ -76,13 +78,24 @@ export default function Home(){
 
 
     return (
-        <div>
+        <div id='entire'>
+            
+
+            <h1><label for='checkNav' id='Check'>☰</label></h1>
+            <input type='checkbox' id='checkNav'/>
+            <h1 id='titulo'>Countries</h1>
+            <Link to='/add'>
+                <button id='add-btn'>ADD</button>
+            </Link>
+
+
+            <div className='inputDiv'> 
             {/* Search Input */}
-            <SearchInput/>
+            <SearchInput id = 'search'className='orders'/>
 
             {/* Search by continent */}
 
-            <select onChange={e => handleGetContinent(e)}>                
+            <select className='orders' onChange={e => handleGetContinent(e)}>                
                 <option value=''>Continent</option>
 				<option value='North America'>North America</option>
                 <option value='South America'>South America</option>    
@@ -94,7 +107,7 @@ export default function Home(){
 
             {/* Order alphabetic */}
 
-            <select onChange={e => handleAlpha(e)}>
+            <select className='orders' onChange={e => handleAlpha(e)}>
                 <option selected>Order</option>
                 <option value = 'A-Z'>A-Z</option>
                 <option value = 'Z-A'>Z-A</option>
@@ -102,25 +115,34 @@ export default function Home(){
 
             {/* Order per Population */}
 
-                <select onChange={e => handlePopulation(e)}>
+                <select className='orders' onChange={e => handlePopulation(e)}>
                     <option selected>Population</option>
                     <option value = 'HtoL'>Higher to Lower</option>
                     <option value = 'LtoH'>Lower to Higher</option>
                 </select>
             {/* Filter activities */}
-            <select onChange={e => handleSearchActivities(e)}>
+            <select className='orders' onChange={e => handleSearchActivities(e)}>
                 <option selected value = 'all'>Activities</option>
             {
                 activities?.map(act => {
                     return (
                         <option value={act.name}>{act.name}</option>
-                    )
-                })
-            }
+                        )
+                    })
+                }
             </select>
             {/* Boton reset */}
 
-            <button onClick={e => handleReset(e)}>Reset filters</button>
+            <button className='orders' onClick={e => handleReset(e)}>Reset filters</button>
+
+            <h1><label for='checkNav' id='close-btn'>x</label></h1>
+
+                </div>
+
+
+
+
+                <div className='countries'>
 
             {/* mapeo de los paises */}
             { 
@@ -137,8 +159,9 @@ export default function Home(){
                     )
                 })
             }
+            </div>
             {
-            <div>
+            <div id='pagination'>
                 <Paginado
                 countriesPerPage={countriesPerPage}
                 countries={countries?.length}
