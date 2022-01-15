@@ -88,10 +88,10 @@ export default function Home(){
                 <button id='add-btn'>ADD</button>
             </Link>
 
+            <SearchInput id = 'search'/>
 
             <div className='inputDiv'> 
             {/* Search Input */}
-            <SearchInput id = 'search'className='orders'/>
 
             {/* Search by continent */}
 

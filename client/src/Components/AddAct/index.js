@@ -2,7 +2,7 @@ import React, { useEffect, useState }from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getCountries } from "../../Actions";
 import { addAct } from "../../Actions";
-
+import './index.css'
 
 
 function control(input){
@@ -89,25 +89,25 @@ export default function AddAct(){
     }
 
     return(
-        <>
-        <form onSubmit={e => handleSumbit(e)}>
-            <div>
-                <span>Name</span>
+        <div className="entire-input">
+        <form className='form-add' onSubmit={e => handleSumbit(e)}>
+            <div className="div-input">
                 <input type= 'text'
+                placeholder="Name..."
                 value = {input.name}
                 name = 'name'
                 onChange={e => handleInputChange(e)}
                 />
                 {
                     errors.name &&(
-                        <p>{errors.name}</p>
+                        <h6 className="errors">{errors.name}</h6>
                     )
                 }
             </div>
 
-            <div>
+            <div className="div-input">
 
-                <span>Diffulty</span>
+                <h5>Diffulty</h5>
                 <input type= 'number' max='5' min='1'
                 value = {input.difficulty}
                 name = 'difficulty'
@@ -115,20 +115,21 @@ export default function AddAct(){
                 />
             </div>
 
-            <div>
-                <span>Duration</span>
+            <div className="div-input">
+
                 <input type= 'text'
+                placeholder="Duration..."
                 value = {input.duration}
                 name = 'duration'
                 onChange={e => handleInputChange(e)}
                 />
                 {
                     errors.duration &&(
-                        <p>{errors.duration}</p>
+                        <h6 className="errors">{errors.duration}</h6>
                     )
                 }
             </div>
-            <select 
+            <select className="div-input"
            value={input.season} name='season' onChange={e => handleInputChange(e)}>
                 <option selected>Season</option>
                 <option value = 'Verano'>Verano</option>
@@ -137,28 +138,32 @@ export default function AddAct(){
                 <option value='Primavera'>Primavera</option>
             </select>
 
-            <select onChange={e => handleCountryChange(e)}>
+            <select className="div-input" onChange={e => handleCountryChange(e)}>
                 <option selected>Select your countries</option>
                 {
                     orderCountries?.map(country=> {
                         return(
-                            <option value = {country.name}>{country.name}</option>
+                            <option  value = {country.name}>{country.name}</option>
                         )
                     })
                 }
             </select>
+            <button id='add-btn'type="sumbit">ADD</button>
+            </form>
+            <h2 id="your">Your Countries</h2>
+            <div id="selected-countries">
+
             {
                 input.countries?.map(country => {
-                    return <div>
-                        <h3>{country}</h3>
-                        <button onClick={() => handleDelete(country)}>x</button>
+                    return <div className="country-inp" >
+                        <span>{country}</span>
+                        <button id='boton-inp' onClick={() => handleDelete(country)}>x</button>
                     </div>
                 })
             }
+            </div>
 
-            <button type="sumbit">ADD</button>
             
-        </form>
-        </>
+        </div>
     )
 }

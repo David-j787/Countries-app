@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useDispatch } from "react-redux";
 import { getCountriesByName } from "../../Actions";
-
+import './index.css'
 
 export default function SearchInput(){
     const dispatch = useDispatch();

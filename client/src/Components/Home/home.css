@@ -44,7 +44,7 @@
 
 .orders{
     display: block;
-    margin: 80px;
+    margin: 70px;
     position: relative;
     top: 100px;
 }
@@ -57,7 +57,7 @@
 
 #titulo{
     position: relative;
-    left: 45%;
+    left: 50%;
     bottom: 70px;
 }
 
@@ -73,8 +73,8 @@
 
 #close-btn{
     position: relative;
-    left: 240px;
-    bottom: 600px;
+    left: 220px;
+    bottom: 500px;
     cursor: pointer;
 }
 
@@ -89,6 +89,5 @@
 /* search */
 
 #search{
-    position: relative;
-    top: 100px;
+    align-content: center;
 }
