@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDetail } from './../../Actions/index';
-
+import './index.css'
 
 
 
@@ -22,28 +22,28 @@ export default function Details(){
 
 
     return(
-        <>
-        <div>
-            <h1>{country.name} ({country.id})</h1>
-            <h3>{country.capital}</h3>
-            <img src={country.flagImg}/>
-            <h2>Placed in {country.subregion} {country.continent}</h2>
-            <h2>With {country.area}km2</h2>
-            <h2>Wich poblation it's {country.population} people</h2>
+        <div className="all-detail">
+        <div id='div-detail'>
+            <h1 className="aling-detail">{country.name} ({country.id})</h1>
+            <h3 className="aling-detail">{country.capital}</h3>
+            <img id='flag-detail' src={country.flagImg}/>
+            <h2 className="aling-detail">Placed in {country.subregion} {country.continent}</h2>
+            <h2 className="aling-detail">With {country.area}km2</h2>
+            <h2 className="aling-detail" >Wich poblation it's {country.population} people</h2>
 
+        </div>
             {
                 country.activities?.map(act => {
                     return(
-                        <div>
+                        <div className="div-activity">
                             <h3>{act.name}</h3>
-                            <h3>Difficulty: {act.difficulty}</h3>
-                            <h3>Season: {act.season}</h3>
-                            <h3>Duration: {act.duration}</h3>
+                            <h4>Difficulty: {act.difficulty}</h4>
+                            <h4>Season: {act.season}</h4>
+                            <h4>Duration: {act.duration}</h4>
                         </div>
                     )
                 })
             }
         </div>
-        </>
     )
 }

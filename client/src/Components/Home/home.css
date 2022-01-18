@@ -49,10 +49,10 @@
     top: 100px;
 }
 
-#add-btn{
-    position: relative;
-    left: 1300px;
-    bottom: 120px;
+#add-route{
+   position: relative;
+   left: 90%;
+   bottom: 120px; 
 }
 
 #titulo{
@@ -81,7 +81,8 @@
     /* home */
 #entire{
     background-image: url('https://www.mactualidad.com/wp-content/uploads/2014/07/smooth-ivy.jpg');
-    height: 100%;
+    height: 1200px;
+    width: 100%;
     overflow: hidden;
 }
 

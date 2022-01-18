@@ -85,7 +85,7 @@ export default function Home(){
             <input type='checkbox' id='checkNav'/>
             <h1 id='titulo'>Countries</h1>
             <Link to='/add'>
-                <button id='add-btn'>ADD</button>
+                <button id='add-route'>Add</button>
             </Link>
 
             <SearchInput id = 'search'/>

@@ -1,0 +1,27 @@
+.all-land{
+    background-image: url('https://wallpaperaccess.com/full/6608131.jpg');
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+#home-btn-land{
+    border-radius: 10px;
+    height: 100px;
+    width: 150px;
+    float: right;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.274);
+    border-width: 1px;
+}
+
+#text-land{
+    color: rgb(241, 204, 204);
+}
+
+#presen-land{
+    color: rgb(255, 255, 255);
+    text-align: center;
+    position: relative;
+    top: 40%;
+}

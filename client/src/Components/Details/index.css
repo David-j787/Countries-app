@@ -1,0 +1,36 @@
+.all-detail{
+    background-color: rgb(66, 65, 65);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+#flag-detail{
+    height: 150px;
+    width: 300px;
+    position: relative;
+    left: 25%;
+}
+
+#div-detail{
+    background-color: rgba(240, 248, 255, 0.486);
+    width: 600px;
+    position: relative;
+    left: 30%;
+    border-radius: 20px;
+}
+
+.aling-detail{
+    text-align: center;
+}
+
+.div-activity{
+    background-color: rgba(240, 248, 255, 0.486);
+    display: inline-block;
+    justify-content: space-between;
+    margin: 100px;
+    border-radius: 10px;
+    position: relative;
+    bottom: 13%;
+    justify-content: center;
+}
