@@ -17,4 +17,4 @@ _PostgreSQL
 <h3>Run this app</h3>
 1. Git clone
 2. npm install
-3. npm start en /api, /client
+3. npm start in /api, /client
