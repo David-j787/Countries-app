@@ -6,7 +6,7 @@
   <img height="200" src="./countries.png" />
 </p>
 
-## Tecnologías usadas
+## Used Uechnologies
 _React
 _Redux
 _Bootstrap
@@ -14,7 +14,7 @@ _Express
 _Sequelize
 _PostgreSQL
 
-##Para probar aplicación
+##For enjoy this app:
 1. Git clone
 2. npm install
 3. npm start en /api, /client
