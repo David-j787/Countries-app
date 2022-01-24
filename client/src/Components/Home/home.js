@@ -85,7 +85,7 @@ export default function Home(){
             <input type='checkbox' id='checkNav'/>
             <h1 id='titulo'>Countries</h1>
             <Link to='/add'>
-                <button id='add-route'>Add</button>
+                <button class="btn btn-outline-info"id='add-route'>Add</button>
             </Link>
 
             <SearchInput id = 'search'/>
@@ -95,7 +95,7 @@ export default function Home(){
 
             {/* Search by continent */}
 
-            <select className='orders' onChange={e => handleGetContinent(e)}>                
+            <select class="form-select" aria-label="Default select example" className='orders' onChange={e => handleGetContinent(e)}>                
                 <option value=''>Continent</option>
 				<option value='North America'>North America</option>
                 <option value='South America'>South America</option>    
@@ -133,9 +133,9 @@ export default function Home(){
             </select>
             {/* Boton reset */}
 
-            <button className='orders' onClick={e => handleReset(e)}>Reset filters</button>
-
-            <h1><label for='checkNav' id='close-btn'>x</label></h1>
+            <button className='orders' id='reset-btn' class="btn btn-danger" onClick={e => handleReset(e)}>Reset filters</button>
+                
+            <h1><label for='checkNav' id='close-btn'>⏎</label></h1>
 
                 </div>
 
@@ -148,14 +148,14 @@ export default function Home(){
             { 
                 currentCountries?.map(country => {
                     return(
-                        <>
+                        <fragment>
                             <CountryCard
                             name = {country.name}
                             flagImg = {country.flagImg}
                             continent = {country.continent}
                             id = {country.id}
                             />
-                        </>
+                        </fragment>
                     )
                 })
             }

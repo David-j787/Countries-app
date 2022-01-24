@@ -1,5 +1,18 @@
 #searchbar{
     position: relative;
-    left: 30%;
-    bottom: 120px;
+    left: 40%;
+    bottom: 80px;
+}
+
+#search-btn{
+    position: relative;
+    left: 197px;
+    bottom: 38px;
+}
+
+@media screen and (max-width: 480px){
+    #searchbar{
+        position: relative;
+        left: 26%;
+    }
 }

@@ -44,11 +44,28 @@
     cursor: pointer;
 }
 
+#select-country{
+    position: absolute;
+    left: 40%;
+    bottom: 45%;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
+#select-season{
+    position: absolute;
+    left: 40%;
+    bottom: 72%;
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+}
+
 #add-btn{
-    position: relative;
-    left: 600px;
-    top: 0;
-    background-color: rgba(0, 0, 255, 0.424)  ;
+    position: absolute;
+    bottom: 25%;
+    left: 53%;
 }
 
 .selected-countries{
@@ -57,4 +74,59 @@
 
 #your{
     text-align: center;
+    color: white;
+}
+
+#back-add{
+    position: absolute;
+    bottom: 80%;
+    left: 10%;
+    cursor: pointer;
+    background-color: rgba(255, 255, 255, 0);
+    border-width: 0ch;
+    color: white;
+}
+
+.inputs-add{
+    width: 200px;
+    height: 40px;
+    border-radius: 10px;
+    border-width: 0.5px;
+}
+
+@media screen and (max-width: 480px){
+    .div-input{
+        display: block;
+        margin: 30px;
+    }
+    .form-add{
+        width: 70%;
+        height: 70%;
+        left: 15%;
+    }
+    #select-season{
+        position: relative;
+        top: 0%;
+        left: 0%;
+    }
+
+    #select-country{
+        position: relative;
+        top: 0%;
+        left: 0%;
+    }
+
+    #add-btn{
+        position: relative;
+        top: -1%;
+        left: 10%;
+    }
+    #back-add{
+        position: absolute;
+        left: 0%;
+        top: 0%;
+    }
+    .country-inp{
+        width: 30%;
+    }
 }

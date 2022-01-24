@@ -1,14 +1,14 @@
-.card{
+.cardss{
     display: inline-block;
     margin: 30px;
-    background-color: rgb(35, 2, 73);
+    background-color: rgba(6, 28, 80, 0.37);
     border-radius: 10px;
     width: 300px;
 }
 
-.card:hover{
+.cardss:hover{
     transform: translateY(-5px);
-    box-shadow:0 12px 16px black;
+    box-shadow:0 12px 16px rgba(172, 164, 164, 0.801);
 }
 
 #countryname{

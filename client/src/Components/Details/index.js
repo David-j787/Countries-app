@@ -3,6 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { getDetail } from './../../Actions/index';
+import { Link } from "react-router-dom";
 import './index.css'
 
 
@@ -44,6 +45,9 @@ export default function Details(){
                     )
                 })
             }
+            <Link to ='/home'>
+                <button id='back-detail'><h1>🔙</h1></button>
+            </Link>
         </div>
     )
 }

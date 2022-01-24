@@ -23,7 +23,7 @@ function rootReducer(state = initialtate, action){
         }
     }
     else if(action.type === 'GET_BY_CONTINENT'){
-        const allCountries = state.allCountries;
+        const allCountries = state.countries;
 
         const countryfiltered = action.payload === '' ? allCountries : allCountries.filter(el => el.continent.includes(action.payload));
 

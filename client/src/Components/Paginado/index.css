@@ -18,3 +18,14 @@
 #boton:hover{
     background-color: rgb(42, 111, 143);
 }
+
+
+@media screen and (max-width: 480px){
+    #boton{
+        position: relative;
+        right: 480%;
+    }
+    .numeritos{
+        display: inline-block;
+    }
+}

@@ -22,11 +22,11 @@ export default function SearchInput(){
         <span id="searchbar">
             {/* Search */}
 
-            <input type = 'text'
+            <input class="input-group-text" type = 'text'
             placeholder="Search country..."
             onChange = {(e) => handleInputChange(e)}
             />
-            <button type = 'submit'
+            <button id='search-btn' class="btn btn-outline-light"type = 'submit'
             onClick = {e => handleSumbit(e)}
             >
             Find

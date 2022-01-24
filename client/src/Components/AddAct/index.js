@@ -2,6 +2,7 @@ import React, { useEffect, useState }from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { getCountries } from "../../Actions";
 import { addAct } from "../../Actions";
+import { Link } from 'react-router-dom';
 import './index.css'
 
 
@@ -72,7 +73,7 @@ export default function AddAct(){
     function handleSumbit(e){
         e.preventDefault();
         console.log(input);
-        if(input.name && input.name.length <= 15 && input.duration && input.duration.length <= 20 && input.season && input.countries){
+        if(input.name && input.name.length <= 15 && input.duration && input.duration.length <= 20 && input.season && input.countries && input.countries.length > 0){
             dispatch(addAct(input));
             alert('Activity created succesfully!')
             setInput({
@@ -91,8 +92,11 @@ export default function AddAct(){
     return(
         <div className="entire-input">
         <form className='form-add' onSubmit={e => handleSumbit(e)}>
-            <div className="div-input">
-                <input type= 'text'
+            <div className="div-input" >
+
+            <h5>Name</h5>
+                <input className="inputs-add"
+                type= 'text'
                 placeholder="Name..."
                 value = {input.name}
                 name = 'name'
@@ -108,7 +112,8 @@ export default function AddAct(){
             <div className="div-input">
 
                 <h5>Diffulty</h5>
-                <input type= 'number' max='5' min='1'
+                <input className="inputs-add"
+                type= 'number' max='5' min='1'
                 value = {input.difficulty}
                 name = 'difficulty'
                 onChange={e => handleInputChange(e)}
@@ -116,8 +121,9 @@ export default function AddAct(){
             </div>
 
             <div className="div-input">
-
-                <input type= 'text'
+                <h5>Duration</h5>
+                <input className="inputs-add"
+                type= 'text'
                 placeholder="Duration..."
                 value = {input.duration}
                 name = 'duration'
@@ -129,7 +135,9 @@ export default function AddAct(){
                     )
                 }
             </div>
-            <select className="div-input"
+            
+            <select id='select-season'
+            className="div-input"
            value={input.season} name='season' onChange={e => handleInputChange(e)}>
                 <option selected>Season</option>
                 <option value = 'Verano'>Verano</option>
@@ -138,7 +146,8 @@ export default function AddAct(){
                 <option value='Primavera'>Primavera</option>
             </select>
 
-            <select className="div-input" onChange={e => handleCountryChange(e)}>
+            <select id='select-country'
+            className="div-input" onChange={e => handleCountryChange(e)}>
                 <option selected>Select your countries</option>
                 {
                     orderCountries?.map(country=> {
@@ -148,7 +157,7 @@ export default function AddAct(){
                     })
                 }
             </select>
-            <button id='add-btn'type="sumbit">ADD</button>
+            <button class="btn btn-outline-success" id='add-btn'type="sumbit">Add activity</button>
             </form>
             <h2 id="your">Your Countries</h2>
             <div id="selected-countries">
@@ -162,7 +171,9 @@ export default function AddAct(){
                 })
             }
             </div>
-
+            <Link to ='/home'>
+                <button id='back-add'><h1>🔙</h1></button>
+            </Link>
             
         </div>
     )
